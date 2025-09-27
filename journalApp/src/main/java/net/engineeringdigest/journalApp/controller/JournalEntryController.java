@@ -40,8 +40,5 @@ public class JournalEntryController {
     public JournalEntry updateJournalById(@PathVariable Long id,@RequestBody JournalEntry myEntry){
         return journalEntries.put(id,myEntry);
     }
-    //here we created a some changes
-    public JournalEntry updateJournalById(@PathVariable Long id,@RequestBody JournalEntry myEntry){
-        return journalEntries.put(id,myEntry);
-    }
+
 }
