@@ -33,7 +33,7 @@ public void createUser(@RequestBody User user){
     userService.saveEntry(user);
 }
 
-@PutMapping("/{userName")
+@PutMapping("/{userName}")
     public ResponseEntity<?>updateUser(@RequestBody User user,@PathVariable String userName){
       User userInDb=userService.findByUserName(userName);
       if(userInDb!=null){

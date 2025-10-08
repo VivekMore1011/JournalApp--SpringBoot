@@ -2,6 +2,7 @@ package net.engineeringdigest.journalApp.controller;
 
 import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.service.JournalEntryService;
+import net.engineeringdigest.journalApp.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,11 @@ public class JournalEntryControllerV2 {
     @Autowired
     private JournalEntryService journalEntryService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping
-    public List<JournalEntry> getAll() {
+    public List<JournalEntry> getAllJournalEntriesOfUser() {
         return journalEntryService.getAll();
     }
 
@@ -33,8 +37,8 @@ public class JournalEntryControllerV2 {
 
     }
 
-    @GetMapping("id/{myId}")
-    public JournalEntry getJournalEntryById(@PathVariable ObjectId myId) {
+    @GetMapping("userName")
+    public JournalEntry getJournalEntryById(@PathVariable String userName) {
         return journalEntryService.findById(myId).orElse(null);
     }
 
